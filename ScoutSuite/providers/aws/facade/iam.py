@@ -94,6 +94,10 @@ class IAMFacade(AWSBaseFacade):
                     policy['attached_to'][resource_type].append(
                         {'name': resource_name, 'id': resource_id})
 
+    async def get_server_certificates(self):
+        server_certificates = await AWSFacadeUtils.get_all_pages('iam', None, self.session, 'list_server_certificates', 'ServerCertificateMetadataList')
+        return server_certificates
+
     async def get_users(self):
         users = await AWSFacadeUtils.get_all_pages('iam', None, self.session, 'list_users', 'Users')
         await get_and_set_concurrently(

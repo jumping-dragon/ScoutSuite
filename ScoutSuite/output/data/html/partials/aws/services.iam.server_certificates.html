@@ -1,0 +1,26 @@
+
+    <!-- IAM role partial -->
+    <script id="services.iam.server_certificates.partial" type="text/x-handlebars-template">
+      <div id="resource-name" class="list-group-item active">
+        <h4 class="list-group-item-heading">{{name}}</h4>
+      </div>
+      <div class="list-group-item">
+          <h4 class="list-group-item-heading">Information</h4>
+          <div class="list-group-item-text item-margin">ID: <span id="iam.server_certificates.{{@key}}.id"><samp>{{value_or_none id}}</samp></span></div>
+          <div class="list-group-item-text item-margin">Arn: <span id="iam.server_certificates.{{@key}}.arn"><samp>{{value_or_none arn}}</samp></span></div>
+          <div class="list-group-item-text item-margin">Expiration Date: <span id="iam.server_certificates.{{@key}}.expiration">{{format_date expiration}}</span></div>
+          <div class="list-group-item-text item-margin">Upload Date: <span id="iam.server_certificates.{{@key}}.UploadDate">{{format_date UploadDate}}</span></div>
+          <div class="list-group-item-text item-margin">Path: <span id="iam.server_certificates.{{@key}}.Path">{{value_or_none Path}}</span></div>
+      </div>
+  </script>
+  <script>
+    Handlebars.registerPartial("services.iam.server_certificates", $("#services\\.iam\\.server_certificates\\.partial").html());
+  </script>
+
+  <!-- Single IAM role template -->
+  <script id="services.iam.server_certificates.template" type="text/x-handlebars-template">
+      {{> modal-template template='services.iam.server_certificates'}}
+  </script>
+  <script>
+      var single_iam_role_template = Handlebars.compile($("#services\\.iam\\.server_certificates\\.template").html());
+  </script>

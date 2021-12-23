@@ -1,0 +1,28 @@
+{
+    "description": "Ensure that all the expired SSL/TLS certificates stored in AWS IAM are removed",
+    "rationale": "Removing expired SSL/TLS certificates eliminates the risk that an invalid certificate will be deployed accidentally to a resource such as AWS Elastic Load Balancer (ELB), which can damage the credibility of the application/website behind the ELB. As a best practice, it is recommended to delete expired certificates.",
+    "compliance": [
+        {
+            "name": "CIS Amazon Web Services Foundations",
+            "version": "1.4.0",
+            "reference": "1.19"
+        }
+    ],
+    "references": [
+        "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html",
+        "https://docs.aws.amazon.com/cli/latest/reference/iam/delete-server-certificate.html"
+    ],
+    "dashboard_name": "Server Certificates",
+    "path": "iam.server_certificates.id",
+    "conditions": [
+        "and",
+        [
+            "iam.server_certificates.id.expiration",
+            "olderThan",
+            [
+                "0",
+                "days"
+            ]
+        ]
+    ]
+}

@@ -5,6 +5,7 @@ from ScoutSuite.providers.aws.resources.iam.policies import Policies
 from ScoutSuite.providers.aws.resources.iam.users import Users
 from ScoutSuite.providers.aws.resources.iam.roles import Roles
 from ScoutSuite.providers.aws.resources.iam.passwordpolicy import PasswordPolicy
+from ScoutSuite.providers.aws.resources.iam.servercertificates import Servercertificates
 from ScoutSuite.providers.aws.facade.base import AWSFacade
 
 
@@ -15,7 +16,8 @@ class IAM(AWSCompositeResources):
         (Policies, 'policies'),
         (Users, 'users'),
         (Roles, 'roles'),
-        (PasswordPolicy, 'password_policy')
+        (PasswordPolicy, 'password_policy'),
+        (Servercertificates, 'server_certificates')
     ]
 
     def __init__(self, facade: AWSFacade):

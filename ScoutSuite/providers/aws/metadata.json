@@ -366,6 +366,10 @@
                 "credential_reports": {
                     "cols": 2,
                     "path": "services.iam.credential_reports"
+                },
+                "server_certificates": {
+                    "cols": 2,
+                    "path": "services.iam.server_certificates"
                 }
             },
             "summaries": {
