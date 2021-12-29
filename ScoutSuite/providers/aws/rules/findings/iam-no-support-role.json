@@ -12,6 +12,11 @@
             "name": "CIS Amazon Web Services Foundations",
             "version": "1.2.0",
             "reference": "1.20"
+        },
+        {
+            "name": "CIS Amazon Web Services Foundations",
+            "version": "1.4.0",
+            "reference": "1.17"
         }
     ],
     "dashboard_name": "Policies",
